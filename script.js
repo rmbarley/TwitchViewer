@@ -1,7 +1,7 @@
-var accounts = ["day9tv", "LoadingReadyRun", "FreeCodeCamp", "bbrode", "griffinmcelroy", "noobs2ninjas", "itshafu", "storbeck", "RobotCaleb", "shelbyplays", "sagecora", "brunofin"];
+var accounts = ["day9tv", "LoadingReadyRun", "FreeCodeCamp", "bbrode", "griffinmcelroy", "auwrath", "itshafu", "adamkoebel", "RobotCaleb", "shelbyplays", "bluejay", "ohirun"];
 $(document).ready(function() {
   accounts.forEach(function(account) {
-    $.getJSON('https://api.twitch.tv/kraken/streams/' + account + '?callback=?', function(res) {
+    $.getJSON('https://api.twitch.tv/kraken/streams/' + account + '?client_id=550a4yfmpppo0ynldxqeh7uafflji4&callback=?', function(res) {
       var game, status, isOnline;
       if (res.stream === null) {
         isOnline = "offline";
@@ -16,7 +16,7 @@ $(document).ready(function() {
         game = "User doesn't exist";
         status = "";
       }
-      $.getJSON('https://api.twitch.tv/kraken/channels/' + account + '?callback=?', function(res) {
+      $.getJSON('https://api.twitch.tv/kraken/channels/' + account + '?client_id=550a4yfmpppo0ynldxqeh7uafflji4&callback=?', function(res) {
         if (res.display_name) {
           var name = res.display_name;
         } else {
